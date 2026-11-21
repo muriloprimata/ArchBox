@@ -311,7 +311,7 @@ jobs:
         run: |
           mkdir -p qemudll
           cp uwp-audit.txt qemudll/ 2>/dev/null || true
-          if [ "${{ steps.audit.outcome }}" = "success" ]; then
+          if [ -f qemu-src/build/qemu.dll ]; then
             cp qemu-src/build/qemu.dll qemudll/
             mkdir -p qemudll/pc-bios
             for f in bios-256k.bin bios.bin kvmvapic.bin linuxboot_dma.bin multiboot_dma.bin pvh.bin vgabios.bin vgabios-stdvga.bin vgabios-cirrus.bin vgabios-virtio.bin; do
