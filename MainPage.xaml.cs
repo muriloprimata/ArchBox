@@ -119,7 +119,8 @@ namespace XboxVmHost
         }
 
         // The penguin's pupils look toward the pointer (positions are in the penguin picture's own pixels).
-        private void PenguinLook(Windows.Foundation.Point p)
+        private void PenguinLook(Windows.Foundation.Point p) { return; }
+        private void PenguinLookOld(Windows.Foundation.Point p)
         {
             try
             {
@@ -357,6 +358,7 @@ namespace XboxVmHost
                 _vkMap[VirtualKey.Left] = 0xCB;
                 _vkMap[VirtualKey.Right] = 0xCD;
                 _vkMap[VirtualKey.Down] = 0xD0;
+                _vkMap[VirtualKey.GamepadDPadUp] = 0xC8; _vkMap[VirtualKey.GamepadDPadDown] = 0xD0; _vkMap[VirtualKey.GamepadDPadLeft] = 0xCB; _vkMap[VirtualKey.GamepadDPadRight] = 0xCD; _vkMap[VirtualKey.GamepadA] = 0x1C; _vkMap[VirtualKey.GamepadB] = 0x0E;
                 _vkMap[VirtualKey.Delete] = 0xD3;
                 for (int f = 0; f < 10; f++) _vkMap[(VirtualKey)((int)VirtualKey.F1 + f)] = 0x3B + f;
                 _vkMap[VirtualKey.F11] = 0x57;
