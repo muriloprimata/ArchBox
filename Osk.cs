@@ -96,7 +96,7 @@ namespace XboxVmHost
 
         private void OskPress(bool down)
         {
-            int code = _oskCodes[_oskR][_oskC]; _dbgKeysSent++; _dbgKey = "osk code=" + code + (down ? " down" : " up");
+            int code = _oskCodes[_oskR][_oskC]; try { Log("osk " + (down ? "down " : "up ") + code); } catch { } _dbgKeysSent++; _dbgKey = "osk code=" + code + (down ? " down" : " up");
             if (OskSticky(code))
             {
                 if (!down) return;

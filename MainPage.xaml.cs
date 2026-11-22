@@ -1312,7 +1312,7 @@ namespace XboxVmHost
             }
             e.Handled = true;
             if (OskHandleKey(e, down)) return;
-            int n = KeyNumberOf(e.VirtualKey, e.KeyStatus);
+            int n = KeyNumberOf(e.VirtualKey, e.KeyStatus); try { Log("key " + (down ? "down " : "up ") + e.VirtualKey + " n=" + n + " running=" + _vmActive); } catch { }
             _dbgKey = (down ? "down " : "up ") + e.VirtualKey + " scan=" + e.KeyStatus.ScanCode + " sent=" + n;
             if (down)
             {
