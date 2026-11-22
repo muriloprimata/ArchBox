@@ -79,7 +79,7 @@ namespace XboxVmHost
         private void OskSetOpen(bool open)
         {
             if (_oskPanel == null) OskBuild();
-            _oskOpen = open;
+            _oskOpen = open; if (open) { _debugOn = true; try { VmDebug.Visibility = Visibility.Visible; } catch { } }
             _oskPanel.Visibility = open ? Visibility.Visible : Visibility.Collapsed;
             if (!open) OskReleaseMods();
             OskPaint();
@@ -96,7 +96,7 @@ namespace XboxVmHost
 
         private void OskPress(bool down)
         {
-            int code = _oskCodes[_oskR][_oskC];
+            int code = _oskCodes[_oskR][_oskC]; _dbgKeysSent++; _dbgKey = "osk code=" + code + (down ? " down" : " up");
             if (OskSticky(code))
             {
                 if (!down) return;
