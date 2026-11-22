@@ -1210,6 +1210,7 @@ namespace XboxVmHost
             if (_vmDone) { EndVm(); return; }
             if (_stopAsked && (DateTime.UtcNow - _stopAskedAt).TotalSeconds > 15) { EndVm(); return; }
             if (_tablet) FlushAbs();
+            PollGamepad();
             if (_debugOn)
             {
                 try { VmDebug.Text = "mouse  raw:" + _dbgMouse + "  window:" + _dbgPtr + "  page:" + _dbgXaml + "  type:" + _dbgType + "  keys:" + _dbgKeysSent; } catch { }
